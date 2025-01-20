@@ -29,7 +29,7 @@ var DB *sql.DB
 	`
 	_,err:=DB.Exec(createUsersTable)
 	if err != nil{
-		panic("Cannot create Table")
+		panic("Cannot create Users Table")
 	}
 
 	createEventsTable := `
@@ -45,6 +45,20 @@ var DB *sql.DB
 	`
 	_,err=DB.Exec(createEventsTable)
 	if err != nil{
-		panic("Cannot create Table")
+		panic("Cannot create Events Table")
+	}
+
+	createRegistrationTable := `
+	CREATE TABLE IF NOT EXISTS registrations (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	event_id INTEGER,
+	user_id INTEGER,
+	FOREIGN KEY(event_id) REFERENCES events(id),
+	FOREIGN KEY(user_id) REFERENCES users(id)
+	)
+	`
+	_, err = DB.Exec(createRegistrationTable)
+	if err != nil{
+		panic("Cannot create Registrations Table")
 	}
  }
