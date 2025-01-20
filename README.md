@@ -36,3 +36,5 @@ This project uses *SQLite* with the following tables:
    - Tracks user registrations for various events.  
 
 ---
+
+<img width="1493" alt="image" src="https://github.com/user-attachments/assets/5a8e1752-d06c-4a6c-a4b7-c5f0fc0d7887" />
